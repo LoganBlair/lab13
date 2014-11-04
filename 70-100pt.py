@@ -67,13 +67,7 @@ class MyApp:
 	        direction = 5
 	    drawpad.move(enemy1,direction,0)
 	    drawpad.after(10,self.animate)
-	    drawpad.move(enemy2,8,0)
-	    drawpad.after(10,self.animate)
-	    drawpad.move(enemy3,10,0)
-	    drawpad.after(10,self.animate)
-	
-	    
-	    
+	 
 	    # Remember to include your "enemies" with "global"
 	    
 	    # Uncomment this when you're ready to test out your animation!
