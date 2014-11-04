@@ -21,7 +21,7 @@ enemy1 = drawpad.create_rectangle(50,50,125,95,fill = "Blue")
 enemy2 = drawpad.create_rectangle(300,400,375,445,fill = "green")
 enemy3 = drawpad.create_rectangle(400,275,475,325,fill = "purple")
 
-direction = 1
+direction = 5
 
 class MyApp:
 	def __init__(self, parent):
@@ -63,10 +63,16 @@ class MyApp:
 	    x1, y1, x2, y2 = drawpad.coords(enemy1)
 	    if x2 == drawpad.winfo_width():
 	        drawpad.move(enemy1,-800,0)
-	    elif x1 > 0:
-	       direction = 1
-	    drawpad.move(enemy1,5,0)
+	    else:
+	        direction = 5
+	    drawpad.move(enemy1,direction,0)
 	    drawpad.after(10,self.animate)
+	    drawpad.move(enemy2,8,0)
+	    drawpad.after(10,self.animate)
+	    drawpad.move(enemy3,10,0)
+	    drawpad.after(10,self.animate)
+	
+	    
 	    
 	    # Remember to include your "enemies" with "global"
 	    
