@@ -21,6 +21,7 @@ enemy1 = drawpad.create_rectangle(50,50,125,95,fill = "Blue")
 enemy2 = drawpad.create_rectangle(300,400,375,445,fill = "green")
 enemy3 = drawpad.create_rectangle(400,275,475,325,fill = "purple")
 
+
 direction = 5
 
 class MyApp:
@@ -56,18 +57,47 @@ class MyApp:
             drawpad.pack(side=RIGHT)
            	    # call the animate function to start our recursion
             self.animate()
+            self.animate2()
+            self.animate3()
 	
 	def animate(self):
 	    global drawpad
 	    global direction
+	    global enemy1
 	    x1, y1, x2, y2 = drawpad.coords(enemy1)
-	    if x2 == drawpad.winfo_width():
+	    if x2 > drawpad.winfo_width():
 	        drawpad.move(enemy1,-800,0)
 	    else:
 	        direction = 5
-	    drawpad.move(enemy1,direction,0)
+	    drawpad.move(enemy1,5,0)
 	    drawpad.after(10,self.animate)
 	 
+	def animate2(self):
+	    global drawpad
+	    global direction
+	    global enemy2  	    
+	    x1, y1, x2, y2 = drawpad.coords(enemy2)
+	    if x2 > drawpad.winfo_width():
+	        drawpad.move(enemy2,-800,0)
+	    else:
+	        drawpad.move(enemy3,0,0)
+	    drawpad.move(enemy2,8,0)    
+	    drawpad.after(10,self.animate2) 
+
+	def animate3(self):
+	    global drawpad
+	    global direction
+	    global enemy3
+	    x1, y1, x2, y2 = drawpad.coords(enemy3)	    
+	    if x2 > drawpad.winfo_width():
+	        drawpad.move(enemy3,-800,0)
+	    else:
+	        drawpad.move(enemy3,0,0)
+	    drawpad.move(enemy3,10,0)   
+	    drawpad.after(10,self.animate3)  
+	    
+	    
+	    
 	    # Remember to include your "enemies" with "global"
 	    
 	    # Uncomment this when you're ready to test out your animation!
